@@ -5,6 +5,7 @@
 
 #include "library.h"
 #include "filemanager.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -167,6 +168,8 @@ int main(int argc, char *argv[])
             else
             {
                 cout << "\n=== RÉSULTATS DE RECHERCHE ===\n";
+                sort(results.begin(), results.end(), [](Book *a, Book *b)
+                     { return a->getTitle() < b->getTitle(); });
                 for (size_t i = 0; i < results.size(); ++i)
                 {
                     cout << "\nRésultat " << (i + 1) << " :\n";
@@ -190,6 +193,8 @@ int main(int argc, char *argv[])
             else
             {
                 cout << "\n=== RÉSULTATS DE RECHERCHE ===\n";
+                sort(results.begin(), results.end(), [](Book *a, Book *b)
+                     { return a->getAuthor() < b->getAuthor(); });
                 for (size_t i = 0; i < results.size(); ++i)
                 {
                     cout << "\nRésultat " << (i + 1) << " :\n";
