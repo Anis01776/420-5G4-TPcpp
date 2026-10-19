@@ -80,9 +80,9 @@ int main(int argc, char *argv[])
         }
     }
 
-    string booksFile;
-    string usersFile;
-    string journalFile;
+    string booksFile = "../data/books.txt";
+    string usersFile = "../data/users.txt";
+    string journalFile = "../data/journal.txt";
     if (!dataDir.empty())
     {
         if (!filesystem::is_directory(dataDir))
@@ -94,6 +94,9 @@ int main(int argc, char *argv[])
         booksFile = (filesystem::path(dataDir) / "books.txt").string();
         usersFile = (filesystem::path(dataDir) / "users.txt").string();
         journalFile = (filesystem::path(dataDir) / "journal.txt").string();
+    }
+    if(dataDir == ""){
+        cout << "Les fichiers de données n'ont pas été trouvés. La sauvegarde sera faite automatiquement !\n";
     }
 
     Library library;
